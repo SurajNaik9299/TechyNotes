@@ -17,7 +17,7 @@ const login = async (req, res) => {
 
   if (!foundUser || !foundUser.active) {
     // console.log("here Ui");
-    return res.status(401).json({ message: "Unauthorized Cho" });
+    return res.status(700).json({ message: "Unauthorized Cho" });
   }
 
   const match = await bcrypt.compare(password, foundUser.password);
@@ -25,7 +25,7 @@ const login = async (req, res) => {
   if (!match) {
     // console.log("here Che")
 
-    return res.status(401).json({ message: "Unauthorized KO" });
+    return res.status(730).json({ message: "Unauthorized KO" });
   }
 
   const accessToken = jwt.sign(
