@@ -18,15 +18,12 @@ connectDB();
 
 app.use(logger);
 
-app.use(cors(corsOptions));
-
-app.use(express.json());
-
-app.use(cookieParser());
-
 app.use(function (req, res, next) {
   // Website you wish to allow to connect
-  res.setHeader("Access-Control-Allow-Origin", "https://technotes-tfkt.onrender.com");
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://technotes-tfkt.onrender.com"
+  );
 
   // Request methods you wish to allow
   res.setHeader(
@@ -47,6 +44,12 @@ app.use(function (req, res, next) {
   // Pass to next layer of middleware
   next();
 });
+
+app.use(cors(corsOptions));
+
+app.use(express.json());
+
+app.use(cookieParser());
 
 app.use("/", express.static(path.join(__dirname, "public")));
 
