@@ -9,6 +9,7 @@ const cors = require('cors')
 const corsOptions = require('./config/corsOptions')
 const connectDB = require('./config/dbConn')
 const mongoose = require('mongoose')
+require('express-async-errors')
 const PORT = process.env.PORT || 3500
 
 console.log(process.env.NODE_ENV)
